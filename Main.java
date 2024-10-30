@@ -52,6 +52,10 @@ public class Main {
     }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println(AverageStaticFriction(6, true));
+        System.out.println("How many trials did you complete?");
+        int numOfTrials = scan.nextInt();
+        System.err.println("Does your data need conversion? (true/false)");
+        boolean needsConversion = scan.nextBoolean();
+        System.out.println(AverageStaticFriction(numOfTrials, needsConversion));
     }
 }
