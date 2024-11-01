@@ -50,6 +50,7 @@ public class Main {
         }
         return (staticFriction / numOfTrials);
     }
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("How many trials did you complete?");
