@@ -53,10 +53,16 @@ public class Main {
     
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("How many trials did you complete?");
-        int numOfTrials = scan.nextInt();
-        System.err.println("Does your data need conversion? (true/false)");
-        boolean needsConversion = scan.nextBoolean();
-        System.out.println(AverageStaticFriction(numOfTrials, needsConversion));
+        System.out.println("Do you need help calculating static friction? (y/n)");
+        String needCalculator = scan.nextLine();
+        if (needCalculator.equals("y")) {
+            System.out.println("How many trials did you complete?");
+            int numOfTrials = scan.nextInt();
+            System.err.println("Does your data need conversion? (true/false)");
+            boolean needsConversion = scan.nextBoolean();
+            System.out.println(AverageStaticFriction(numOfTrials, needsConversion));
+        }
+        System.out.println("Is there anything else you need? (y/n)");
+        String needHelp = scan.nextLine();
     }
 }
