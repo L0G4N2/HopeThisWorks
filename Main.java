@@ -64,5 +64,19 @@ public class Main {
         }
         System.out.println("Is there anything else you need? (y/n)");
         String needHelp = scan.nextLine();
+        while (!(needHelp.equals("y") || needHelp.equals("n"))) {
+            if (needHelp.equals("y")) {
+                System.out.println("What can I help with?");
+                break;
+            }
+            else if (needHelp.equals("n")) {
+                System.out.println("Well, bye bye then!");
+                break;
+            }
+            else {
+                System.out.println("I do not understand your response...");
+                needHelp = scan.nextLine();
+            }
+        }
     }
 }
