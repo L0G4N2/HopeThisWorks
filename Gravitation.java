@@ -8,7 +8,7 @@ public class Gravitation {
     }
     public ArrayList<Double> calculate(int numOfMasses) {
         Scanner scan = new Scanner(System.in);
-        ArrayList<Double> forces = new ArrayList<Double>();
+        ArrayList<Double> forces = new ArrayList<>();
         for (int i = 1; i <= numOfMasses; i++) {
             System.out.println("System " + i + ":");
             System.out.print("Enter the first mass: ");
