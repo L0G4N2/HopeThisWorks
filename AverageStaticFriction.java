@@ -17,7 +17,7 @@ public class AverageStaticFriction {
         }
         else if (needsConversion == true) {
             System.out.println("Which column needs to be converted? 1, 2, or Both(3)?");
-            String whichColumn = scan.nextLine();
+            String whichColumn = scan.nextLine().toUpperCase();
             if (whichColumn.equals("1")) {
                 for (int i = 1; i <= numOfTrials; i++) {
                     System.out.println("Enter the masses from Trial " + i + ".");
@@ -38,7 +38,7 @@ public class AverageStaticFriction {
                     staticFriction += ((mass2 / 1000) / (mass1));
                 }
             }
-            else if (whichColumn.toUpperCase().equals("BOTH") || whichColumn.equals("3")) {
+            else if (whichColumn.equals("BOTH") || whichColumn.equals("3")) {
                 for (int i = 1; i <= numOfTrials; i++) {
                     System.out.println("Enter the masses from Trial " + i + ".");
                     System.out.println("Enter the first mass: ");
