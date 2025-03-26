@@ -30,6 +30,9 @@ int main() {
     else if (Controller1.ButtonB.pressing()) {
       Motor11.spinFor(reverse, 180, degrees);
     }
-    
+    // for (int i = 0; i < 2; i++) {
+    //   Motor11.spinFor(forward, 180, degrees);
+    //   wait(1500, msec);
+    // }
   }
 }
