@@ -12,27 +12,32 @@
 // [Name]               [Type]        [Port(s)]
 // Controller1          controller                    
 // Motor11              motor         11              
+// Rotation12           rotation      12              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
 
 using namespace vex;
 
+int turnPosition = 0;
+
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
   Motor11.setVelocity(50, percent);
+  Rotation12.setPosition(0, degrees);
+  Rotation12.resetPosition();
   while (true) {
-    wait(20, msec);
-    if (Controller1.ButtonA.pressing()) {
-      Motor11.spinFor(forward, 180, degrees);
+    wait(250, msec);
+    if (Controller1.ButtonA.pressing() && (Rotation12.angle(degrees) >= 335 || Rotation12.angle(degrees) < 25)) {
+      Motor11.spin(forward);
+      wait(380, msec);
+      Motor11.stop(hold);
     }
-    else if (Controller1.ButtonB.pressing()) {
-      Motor11.spinFor(reverse, 180, degrees);
+    if (Controller1.ButtonB.pressing() && (Rotation12.angle(degrees) >= 155 && Rotation12.angle(degrees) <= 215)) {
+      Motor11.spin(reverse);
+      wait(380, msec);
+      Motor11.stop(hold);
     }
-    // for (int i = 0; i < 2; i++) {
-    //   Motor11.spinFor(forward, 180, degrees);
-    //   wait(1500, msec);
-    // }
   }
 }
