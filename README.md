@@ -21,4 +21,5 @@ That was the original plan, but now this is storage for my super random and fun 
 > Everything that is in Java runs in this magic machine
 > It also contains my "voice"!
 
-# 
+# Scrap
+> Just a random Class that I throw temporary code in
