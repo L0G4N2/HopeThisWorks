@@ -18,4 +18,7 @@ That was the original plan, but now this is storage for my super random and fun 
 
 # Main
 > This is where the magic happens!  
-> Everything that is in Java runs in this
+> Everything that is in Java runs in this magic machine
+> It also contains my "voice"!
+
+# 
