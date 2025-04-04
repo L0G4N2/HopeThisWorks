@@ -54,18 +54,21 @@ public class Main {
 
         System.out.println("Is there anything else you need? (y/n)");
         String needHelp = scan.nextLine().toUpperCase();
+        OUTER:
         while (!(needHelp.equals("Y") || needHelp.equals("N"))) {
-            if (needHelp.equals("Y")) {
-                System.out.println("What can I help with?");
-                break;
-            }
-            else if (needHelp.equals("N")) {
-                System.out.println("Well, bye bye then!");
-                break;
-            }
-            else {
-                System.out.println("Waiting on a valid response...");
-                needHelp = scan.nextLine();
+            switch (needHelp) {
+                case "Y" -> {
+                    System.out.println("What can I help with?");
+                    break OUTER;
+                }
+                case "N" -> {
+                    System.out.println("Well, bye bye then!");
+                    break OUTER;
+                }
+                default -> {
+                    System.out.println("Waiting on a valid response...");
+                    needHelp = scan.nextLine();
+                }
             }
         }
 
