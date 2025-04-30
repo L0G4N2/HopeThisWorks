@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Main {
+
+    public static boolean yesNo(String string) {
+        return string.substring(0, 1).equals("Y");
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Scrap scrap = new Scrap();
@@ -51,11 +57,21 @@ public class Main {
                 System.out.println(grav.sortNumList(list));
             }
         }
+        
+        System.out.println("I bet you might wanna see this AP Classroom Work though, right? (Yes/No)");
+        String needAP = scan.nextLine().toUpperCase();
+        while (!yesNo(needAP)) {
+            switch (needAP) {
+                case "Y" -> {
+                    System.out.println("");
+                }
+            }
+        }
 
         System.out.println("Is there anything else you need? (y/n)");
         String needHelp = scan.nextLine().toUpperCase();
         OUTER:
-        while (!(needHelp.equals("Y") || needHelp.equals("N"))) {
+        while (!(yesNo(needHelp))) {
             switch (needHelp) {
                 case "Y" -> {
                     System.out.println("What can I help with?");
