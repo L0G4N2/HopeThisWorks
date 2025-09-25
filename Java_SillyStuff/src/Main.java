@@ -96,7 +96,8 @@ public class Main {
         System.out.println("""
                            If you would like to run anything else: Run "scrap.trash."
                            Freely edit "Scrap.java" before running it.
-                           Next, you'd want to call the function from the "Scrap" class in the code.""");
+                           Next, you'd want to call the function from the "Scrap" class in the code.
+                           """);
         // Uncomment the next line either by deleting the "//" or by selecting the line and pressing "CTRL + /"
         // scrap.trash();
     }
