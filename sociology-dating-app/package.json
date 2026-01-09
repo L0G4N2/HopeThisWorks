@@ -1,8 +1,8 @@
 {
-  "name": "psychology-dating-app",
+  "name": "sociology-dating-app",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://l0g4n2.github.io/psychology-dating-app/",
+  "homepage": "https://l0g4n2.github.io/sociology-dating-app/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
