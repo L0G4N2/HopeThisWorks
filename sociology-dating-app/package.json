@@ -2,7 +2,7 @@
   "name": "sociology-dating-app",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://l0g4n2.github.io/HopeThisWorks/sociology-dating-app/",
+  "homepage": "https://l0g4n2.github.io/HopeThisWorks/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
