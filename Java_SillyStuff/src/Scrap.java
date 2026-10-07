@@ -9,8 +9,9 @@ public class Scrap {
     }
 }
 
-public class dumpster extends Scrap {
+class dumpster extends Scrap {
 
+    @Override
     public void trash() {
         /* This is where you would type your code */
     }
