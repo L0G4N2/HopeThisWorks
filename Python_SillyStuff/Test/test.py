@@ -1,3 +1,4 @@
-a = str(float(str(3 / 2) + str(int(3 / 2)))) * int(int(str(2) + str(7)) / int(10.3))
-
-print(a)
+a = "Space"
+print(a[0])
+print(len(a) - 1)
+print(len(a) + 0.5 * 3 // 2)
