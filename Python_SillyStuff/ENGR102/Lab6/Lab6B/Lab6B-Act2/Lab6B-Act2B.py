@@ -7,17 +7,18 @@
 # Assignment:   Lab6B-Act2A
 # Date:         29 September 2026
 
-temp = 0
-average = 0
-maximum = 0
-minimum = 0
+temp = 0; average = 0; count = 0
+maximum = 0; minimum = 0
 print("This program takes a user input of measurements in an infinite loop", end=" ")
 print("and prints the average of the measurements after the user enters a negative value.")
-while not (temp < 0):
+while temp >= 0:
     temp = float(input("Enter a measurement. Negative numbers will cancel the loop and print the average of the measurements: "))
     maximum = temp if temp >= maximum else maximum
     minimum = temp if temp <= minimum else minimum
-    if not (temp < 0):
+    if temp >= 0:
         average += temp
-average /= 2
+        count += 1
+average /= count
 print(f"The average of the entered measurements is: {average}")
+print(f"The minimum measurement is: {minimum}")
+print(f"The maximum measurement is: {maximum}")
