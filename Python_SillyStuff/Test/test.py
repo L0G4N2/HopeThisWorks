@@ -1,4 +1,4 @@
-a = "Space"
-print(a[0])
-print(len(a) - 1)
-print(len(a) + 0.5 * 3 // 2)
+a = "ab"
+b = "aa"
+
+print(a > b)  # This will print True because "ab" is greater than "aa" in lexicographical order.
