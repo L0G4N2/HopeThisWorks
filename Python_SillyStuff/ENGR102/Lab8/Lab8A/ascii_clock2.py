@@ -42,10 +42,10 @@ while not(isValid):
             minute += time[i]
             lenMinute += 1
     # Exit the loop if the hour and minutes are acceptable
-    if (int(hour) < 25 and int(hour) >= 0) and (int(minute) < 60 and int(minute) >= 0) and (lenHour == 1 or lenHour == 2) and (lenMinute == 2):
+    if (int(hour) < 25 and int(hour) > 0) and (int(minute) < 60 and int(minute) >= 0) and (lenHour == 1 or lenHour == 2) and (lenMinute == 2):
         isValid = True
     else:
-        print("That was an invalid time. Please enter a valid time (H:MM or HH:MM): ")
+        print("That was an invalid time. Please enter a valid time.")
 
 # while len(time) != 4 and len(time) != 5:
 #     print("Invalid input. Please enter a time in the format of H:MM or HH:MM.")
