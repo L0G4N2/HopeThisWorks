@@ -14,6 +14,20 @@ from sympy import *
 x = symbols('x')
 y = symbols('y')
 
+def approxDerivative(function, pointA, pointer):
+    x1 = 0.1
+    iterations = 1
+    divisor = 2
+    diffAtA = (function.diff()).subs(x, pointA)
+    numDiff = (function.subs(x, pointA + x1) - function.subs(x, pointA)) / x1
+    difference = abs(abs(numDiff) - abs(diffAtA)).evalf()
+    while not(difference <= 1e-8):
+        numDiff = ((function.subs(x, pointA + (x1 / divisor)) - function.subs(x, pointA)) / (x1 / divisor)).evalf()
+        difference = abs(abs(numDiff) - abs(diffAtA)).evalf()
+        divisor *= 2
+        iterations += 1
+    print(f"After {iterations} iterations, the approximated derivative at {pointer} is: {numDiff}")
+
 # Part A
 
 # Cubic functions are defined as: y = Ax^3 + Bx^2 + Cx + D, where the values of the coeffiecients are real numbers
@@ -34,7 +48,37 @@ dFoX = diff(foX)
 
 # Input a certain x value from the user and compare f(x) to f'(x)
 a = float(input("Enter a value of x to solve for the value at f'(x): "))
-print(f"The value of f'({a}) is equal to: {dFoX.subs(x, a)}")
+diffAtA = dFoX.subs(x, a)
+print(f"The value of f'({a}) is equal to: {diffAtA}")
 
 # Part B
 
+x1 = 0.1
+iterations = 1
+divisor = 2
+numDiff = (foX.subs(x, a + x1) - foX.subs(x, a)) / x1
+difference = abs(abs(numDiff) - abs(diffAtA))
+while not(difference <= 1e-6):
+    numDiff = (foX.subs(x, a + (x1 / divisor)) - foX.subs(x, a)) / (x1 / divisor)
+    difference = abs(abs(numDiff) - abs(diffAtA))
+    divisor *= 2
+    iterations += 1
+print(f"After {iterations} iterations, the approximated value of f'({a}) is, {numDiff}, and is off by the true value by {numDiff - dFoX.subs(x, a)}.")
+
+# Part C
+
+# Approximating the derivative of sin(2x) at x = 2
+goX = sin(2 * x)
+approxDerivative(goX, 2, "g'(2)")
+
+# Approximating the derivative of ln(1/x) at x = 5
+hoX = ln(1 / x)
+approxDerivative(hoX, 5, "h'(5)")
+
+# Approximating the derivative of tan(sin(x)) at x = -10
+joX = tan(sin(x))
+approxDerivative(joX, -10, "j'(-10)")
+
+# Approximating the derivative of e^[cos(x)] at x = 0.3
+koX = exp(cos(x))
+approxDerivative(koX, 0.3, "k'(0.3)")

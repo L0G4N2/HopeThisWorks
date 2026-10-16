@@ -10,12 +10,18 @@
 # Assignment:   Lab6A-Act1
 # Date:         29 September 2026
 
+# Test Cases:
+# print(f"The coefficient for 'A' is: {userCoeffList[0]}") # Prints out the coefficient of 'A' as a float number
+# print(f"The coefficient for 'B' is: {userCoeffList[1]}") # Prints out the coefficient of 'B' as a float number
+# print(f"The coefficient for 'C' is: {userCoeffList[2]}") # Prints out the coefficient of 'C' as a float number
+# print(f"The coefficient for 'D' is: {userCoeffList[3]}") # Prints out the coefficient of 'D' as a float number
+# print(f"Is the starting bound at least a difference of 1? {x2 > x1 + 1}") # Returned a value of True or False based on the logic
+
 # A useful library that allows us to perform calculus in the program
 from sympy import *
 
 # Variables to be used in the cubic function
-x = symbols('x')
-y = symbols('y')
+x = symbols('x'); y = symbols('y')
 
 # Cubic functions are defined as: y = Ax^3 + Bx^2 + Cx + D, where the values of the coeffiecients are real numbers
 coeffList = ['A', 'B', 'C', 'D']
@@ -30,19 +36,13 @@ for i in range(4):
 foX = (userCoeffList[0] * x**3) + (userCoeffList[1] * x**2) + (userCoeffList[2] * x) + userCoeffList[3]
 eqFoX = Eq(foX, y).subs(y, 0)
 
-# Solve for the roots of the given function
-rootsFoX = solve(eqFoX, x)
-print(f"The roots of the function f(x) = {foX} are: {rootsFoX}")
-
 # Solve for the roots of the given function on a given interval using Bisection
-x1 = float(input("Enter the first interval of the function as a real number: "))
-x2 = float(input("Enter the second interval of the function as a real number greater than the first interval: "))
+print("Enter the interval that the root takes on.")
+x1 = float(input("Enter the first interval of the function as a real number (x1 < x2): "))
+x2 = float(input("Enter the second interval of the function as a real number greater than the first interval (x2 > x1): "))
 
-a = x1
-b = x2
-c = -1
-iterations = 0
-root1 = None
+a = x1; b = x2; c = -1
+iterations = 0; root1 = None
 while not (foX.subs(x, c) >= -1e-15 and foX.subs(x, c) <= 1e-15):
     c = (a + b) / 2
     if foX.subs(x, c) >= -1e-15 and foX.subs(x, c) <= 1e-15:
@@ -53,7 +53,7 @@ while not (foX.subs(x, c) >= -1e-15 and foX.subs(x, c) <= 1e-15):
         b = c
     iterations += 1
 root1 = c
-print(f"After {iterations} iterations, the root on the interval from x = {x1} to x = {x2} is: {root1}")
+print(f"After {iterations} iterations, the root on the interval from x = {x1} to x = {x2} is approximately: {root1:.6f}")
 
 # Optional Challenge, find the max and min values of the function
 # It is known that the derivative at these max and mins is equal to 0
@@ -63,4 +63,5 @@ eqDfoX = Eq(dFoX, y).subs(y, 0)
 
 # Find the extreme values
 extremeFoX = solve(eqDfoX, x)
+print("------ Optional Challenge ------")
 print(f"The extreme values of the function f(x) = {foX} are at x = {extremeFoX}")
