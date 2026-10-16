@@ -26,7 +26,7 @@ forceX = toX * cos(thetaX)
 
 # Part A        Find F'(x) and include units
 forcePrime = forceX.diff()
-print(f"F'(x) = {forcePrime} N")
+print(f"F'(x) = {forcePrime} and is in Newtons.")
 
 # Part B        Evaluate F(0), F(10), and F'(2) and include units
 print(f"F(0) = {forceX.subs(x, 0):.3f} N")
