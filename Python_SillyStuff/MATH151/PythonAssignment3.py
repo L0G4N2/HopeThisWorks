@@ -20,7 +20,7 @@ foXPrimeZero = nsolve(Eq(foXPrime, 0), x, 1)
 print(f"The value of x where f'(x) = 0 is: {foXPrimeZero:.3f}")
 
 # Problem #2    T(x) = 200 + 10x      THETA(x) = (pi / 6) + (x / 20)      F(x) = T(x)cos(THETA(x))
-toX = 200 + 10*x
+toX = 200 + 10 * x
 thetaX = (pi / 6) + (x / 20)
 forceX = toX * cos(thetaX)
 
@@ -46,7 +46,7 @@ print(f"The horizontal force at x = {solvedForcePrime:.3f} is: {yValue:.3f} N")
 eqFoX = Eq(x**2 + x*y + y**2, 7)
 
 # Part A        Use implicit differentiation to find dy/dx
-dyDx = -(diff(eqFoX.lhs, x) / diff(eqFoX.lhs, y)) + diff(eqFoX.rhs, x) / diff(eqFoX.lhs, y)
+dyDx = -(diff(eqFoX.lhs, x) / diff(eqFoX.lhs, y)) + diff(eqFoX.rhs, x) / diff(eqFoX.lhs, y) #type: ignore
 print(f"dy/dx = {dyDx}")
 
 # Part B        Find the slope and the tangent line at the point (1, 2)

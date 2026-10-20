@@ -7,15 +7,15 @@ y = sp.symbols('y')
 
 # 1A. [(4e-4.5)^3.2 + 12^2] / [6 * [ln(3.4)]^2 - 5 * 8]
 numerator =  float(((4 * sp.E) - 4.5)**3.2 + 12**2)
-denominator = 6 * (sp.ln(3.4))**2 - (5 * 8)
+denominator = 6 * (sp.ln(3.4))**2 - (5 * 8) #type: ignore
 print(f"The result of 1.A. is: {numerator / denominator:.8f}")
 
 # 1.B. sin([5 * PI] / 7) * arctan(15) - sec([2 * PI] / 5)
 sine = sp.sin((5 * sp.pi) / 7)
 arcTan = sp.atan(15)
 secant = sp.sec((2 * sp.pi) / 5)
-print(sp.simplify(sine * arcTan - secant))
-print(f"The result of 1.B. is: {sine * arcTan - secant:.8f}")
+print(sp.simplify(sine * arcTan - secant)) # type: ignore
+print(f"The result of 1.B. is: {sine * arcTan - secant:.8f}") # type: ignore
 
 # Question #2:
 functionF = sp.tan(2 * x) / (3 * x)
