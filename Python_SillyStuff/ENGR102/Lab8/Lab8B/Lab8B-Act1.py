@@ -21,16 +21,23 @@ while word != 'stop':
     charList = list(word) # Store the individual charaters of the word in a list
     isVowel = False
 
-    # Check if the first word is a vowel
-    for vowel in vowels:
-        if charList[0] == vowel:
-            isVowel = True
-    # Convert the word to Pig Latin
-    if isVowel:
-        charList = "".join(charList) + 'yay'
-    else:
-        charList.append(charList.pop(0))
-        charList = "".join(charList) + 'ay'
+    for char in word:
+        # Check if the first word is a vowel
+        for vowel in vowels:
+            if charList[0] == vowel:
+                isVowel = True
+        # Convert the word to Pig Latin
+        if isVowel:
+            charList.append("ay")
+            break
+        else:
+            temp = charList.pop(0)
+            charList.append(temp)
     # Print the new word and ask for the next input
-    print(charList)
+    for vowel in vowels:
+        if vowel == word[0]:
+            charList.pop()
+            charList.append("yay")
+            break
+    print("".join(charList))
     word = input("Enter a new single word and enter 'stop' to stop the loop: ").lower()
