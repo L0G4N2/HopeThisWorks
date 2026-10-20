@@ -10,15 +10,17 @@
 # Assignment:   ascii_clock_LG
 # Date:         14 October 2026
 
-# Lists containing regular integer numbers and another containing the "ASCII Numbers"
+# The list containing containing the "ASCII Numbers"
 asciiNumbersList = [["000", " 1 ", "222", "333", "4 4", "555", "666", "777", "888", "999"],
                     ["0 0", "11 ", "  2", "  3", "4 4", "5  ", "6  ", "  7", "8 8", "9 9"],
                     ["0 0", " 1 ", "222", "333", "444", "555", "666", "  7", "888", "999"],
                     ["0 0", " 1 ", "2  ", "  3", "  4", "  5", "6 6", "  7", "8 8", "  9"],
                     ["000", "111", "222", "333", "  4", "555", "666", "  7", "888", "  9"]
-                    ]
+                   ]
 
-# Test Case: Ensure that the list of "ASCII Numbers" are stored and formatted correctly for num in asciiNumbersList: print(num)
+# Test Case: Ensure that the list of "ASCII Numbers" are stored and formatted correctly
+    # for num in asciiNumbersList:
+    #     print(num)
 
 # Context for the user
 print("This program will take a time input and display it in \"ASCII Numbers\". Time is printed in Military Time (24-hour format).", end=" ")
@@ -30,26 +32,15 @@ print("An error will also be thrown if there is no value before and/or after the
 time = ""; isValid = False
 while not(isValid):
     # Take input of the time from the user as either 00:00 or 0:00
-    time = list(input("Enter a time (either in the format of H:MM or HH:MM): "))
-    indexColon = time.index(":") # Find the index of the colon
-    hour = ""; minute = ""
-    lenHour = 0; lenMinute = 0
-    for i in range(len(time)):
-        if i < indexColon:
-            hour += time[i]
-            lenHour += 1
-        elif i > indexColon:
-            minute += time[i]
-            lenMinute += 1
-    # Exit the loop if the hour and minutes are acceptable
-    if (int(hour) < 25 and int(hour) > 0) and (int(minute) < 60 and int(minute) >= 0) and (lenHour == 1 or lenHour == 2) and (lenMinute == 2):
+    time = input("Enter a time (either in the format of H:MM or HH:MM): ")
+    split = time.split(":")
+    isValidHour = (int(split[0]) > 0 and int(split[0]) < 24 and len(split[0]) == 1) or ((len(split[0]) == 2 and ((int(split[0]) > 0) and split[0][0] != "0") or int(split[0]) == 0))
+    isValidMinute = len(split[1]) == 2 and int(split[1]) >= 0 and int(split[1]) <= 59 
+    if isValidHour and isValidMinute:
+        time = list(time)
         isValid = True
     else:
         print("That was an invalid time. Please enter a valid time.")
-
-# while len(time) != 4 and len(time) != 5:
-#     print("Invalid input. Please enter a time in the format of H:MM or HH:MM.")
-#     time = list(input("Enter a time (either in the format of H:MM or HH:MM): "))
 
 # Convert the numerical values of the time to be integers and keep the colon as is
 for t in time: # type: ignore
@@ -57,13 +48,13 @@ for t in time: # type: ignore
         time[time.index(t)] = int(t) # type: ignore
 
 # Print out the input time as "ASCII Numbers"
-for i in range(5):
-    for j in range(len(time)):
-        if (len(time) == 4 and j == 1) or (len(time) == 5 and j == 2):
-            if i % 2 == 1:
+for row in range(5):
+    for column in range(len(time)):
+        if (len(time) == 4 and column == 1) or (len(time) == 5 and column == 2):
+            if row % 2 == 1:
                 print(":", end=" ")
             else:
                 print(" ", end=" ")
         else:
-            print(asciiNumbersList[i][time[j]], end=" ") # type: ignore
+            print(asciiNumbersList[row][time[column]], end=" ") # type: ignore
     print()
