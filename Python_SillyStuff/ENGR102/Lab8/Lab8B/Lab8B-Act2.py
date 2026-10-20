@@ -9,35 +9,34 @@
 
 from math import *
 
-# List of axes
-axes = ['x', 'y', 'z']
-
 # Context for the user
 print("This program takes an input of two vectors of either dimension specified by the user and returns the following calculations: ")
 print("The magnitude of the vectors, A + B, A - B, and the dot product of the vectors")
 
 # Retrieve the vector dimensions
-dimension1 = int(input("What dimension is the first vector in? (2 or 3): "))
-dimension2 = int(input("What dimension is the second vector in? (2 or 3): "))
+dimension1 = int(input("What dimension is the first vector in?: "))
+dimension2 = int(input("What dimension is the second vector in?: "))
 
 # List of vectors
 vector1 = []; vector2 = []
 
 # Retrieve the vector values
 for i in range(dimension1):
-    temp = float(input(f"Enter the {axes[i]}-value of the first vector: "))
+    temp = float(input(f"Enter coordinate #{i + 1} of the first vector: "))
     vector1.append(temp)
 for i in range(dimension2):
-    temp = float(input(f"Enter the {axes[i]}-value of the second vector: "))
+    temp = float(input(f"Enter coordinate #{i + 1} of the second vector: "))
     vector2.append(temp)
 
-# Convert the 2D vector to a 3D vector if at least one of them is a 3D vector
-if len(vector1) >= len(vector2):
-    vector2.append(0)
-    print("Vector 2 has been converted to a 3D vector to perform the following calculations.")
-elif len(vector2) >= len(vector1):
-    vector1.append(0)
-    print("Vector 1 has been converted to a 3D vector to perform the following calculations.")
+# Convert the vector of the lowest dimension to the vector of the highest if they are different dimensions
+if len(vector1) > len(vector2):
+    while len(vector1) != len(vector2):
+        vector2.append(0)
+    print(f"Vector 2 has been converted to a {len(vector1)}D vector to perform the following calculations.")
+elif len(vector2) > len(vector1):
+    while len(vector1) != len(vector2):
+        vector1.append(0)
+    print(f"Vector 1 has been converted to a {len(vector2)}D vector to perform the following calculations.")
 
 # Calculate the magnitude of each vector
 magnitude1 = 0
