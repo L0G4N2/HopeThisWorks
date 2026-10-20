@@ -26,6 +26,9 @@ for i in range(num):
     temp = input("Enter a password: ")
     passwords.append(temp)
 
+# Create a dictionary to store the inputs
+logins = dict(zip(usernames, passwords))
+
 # Ask the user to enter a correct username/password combination
 inputName = input("Enter a valid username: ")
 inputPass = input("Enter a valid password: ")
@@ -35,6 +38,7 @@ isValid = False
 while not(isValid):
     # Check if the username/password exist
     exists = False
+
     for name in usernames:
         if inputName == name:
             exists = True
@@ -49,7 +53,7 @@ while not(isValid):
             exists = False
 
     # Check if the combination is correct
-    if exists and (usernames.index(inputName) == passwords.index(inputPass)):
+    if exists and (inputPass == logins[inputName]):
         isValid = True
     else:
         inputName = input("The previous combination was invalid. Enter a new username: ")
