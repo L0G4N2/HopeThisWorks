@@ -12,7 +12,7 @@ print("This program requests a single number value from the user that states the
 print("The user is then prompted to enter a username and password combination until they have access to the system.")
 
 # Retrieve the magic number from the user
-num = int(input("Enter a positive integer to be used to determine the number of inputs for each username/password: "))
+num = int(input("Enter a positive integer to be used to determine the number of inputs for each username and password: "))
 
 # Retrieve usernames
 usernames = []
