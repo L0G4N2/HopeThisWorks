@@ -44,3 +44,7 @@ print(myTuple)
 myStr = "hello"
 myList[0] = 5
 print(myTuple)
+
+list = ["hello:123", "world:456"]
+list2 = [item.split(":") for item in list]
+print(list2)
