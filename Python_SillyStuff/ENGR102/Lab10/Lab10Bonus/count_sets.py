@@ -20,11 +20,10 @@ def count_sets(n):
                     if d * d == remainder:
                         sets.append([a, b, c, d])
                         count += 1
-    return count, sets
+    return count
 
-# how to measure how long your function takes to run:
-while True:
-    temp = int(input("Num: "))
-    count, sets = count_sets(temp)
-    print(f"There are {count} different variations of four numbers that add up to {temp} when squared.")
-    print(f"Those sets are: {sets}")
+# Testing the function with an infinite loop to allow the user to input different values of n
+# while True:
+#     temp = int(input("Num: "))
+#     count = count_sets(temp)
+#     print(f"There are {count} different variations of four numbers that add up to {temp} when squared.")
