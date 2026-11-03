@@ -47,7 +47,6 @@ def from_roman(roman_numeral):
     #     elif current > maxSeen:
     #         total += current
     #         maxSeen = symbols[char]
-
     # return total
     
     symbol = roman_numeral[-1]
