@@ -48,3 +48,6 @@ print(myTuple)
 list = ["hello:123", "world:456"]
 list2 = [item.split(":") for item in list]
 print(list2)
+
+tuple = 1, 2, 3, 4
+print(tuple)
