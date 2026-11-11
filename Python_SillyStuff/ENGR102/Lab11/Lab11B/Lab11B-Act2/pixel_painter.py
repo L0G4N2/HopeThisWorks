@@ -16,11 +16,10 @@ def paintPixel(pixel, char, outfile):
     index = 0
     for p in pixel:
         if index % 2 == 0:
-            print(" " * int(p), end="", file=outfile)
+            outfile.write(" " * int(p))
         else:
-            print(char * int(p), end="", file=outfile)
+            outfile.write(char * int(p))
         index += 1
-    print(file=outfile)
 
 file = input("Enter the filename: ")
 char = input("Enter a character: ")
@@ -31,3 +30,5 @@ with open(infilePath, 'r') as infile, open(outfilePath, 'r+') as outfile:
     lines = infile.readlines()
     for line in lines:
         paintPixel(line.strip(), char, outfile)
+        if line != lines[-1]:
+            outfile.write("\n")
