@@ -22,8 +22,8 @@ def isValidPassport(passport, outfile):
 
     for field in requiredFields:
         if field not in [field.split(":")[0] for field in passport]:
-            print(f"Missing required field: {field}")
-            print("Passport:", passport)
+            # print(f"Missing required field: {field}")
+            # print("Passport:", passport)
             return False
     outfile.write(" ".join(passport) + "\n\n")
     return True
@@ -37,11 +37,13 @@ with open(infilePath, "r") as infile, open(outfilePath, "r+") as outfile:
     passport = ""
     line = infile.readline()
     while line:
-        if line == "\n":
+        if line == "\n" or line == "":
             isValid = isValidPassport(passport, outfile)
-            passport = ""; count += 1
+            passport = ""; count += 1 if isValid else 0
         else:
             passport += line
         line = infile.readline()
+    isValid = isValidPassport(passport, outfile)
+    count += 1 if isValid else 0
 
 print(f"There are {count} valid passports")
