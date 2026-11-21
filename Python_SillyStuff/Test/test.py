@@ -51,3 +51,8 @@ print(list2)
 
 tuple = 1, 2, 3, 4
 print(tuple)
+
+tuple = (1, [2, 3], 4)
+tuple[1][0] = 5
+tuple[1][1] = 2
+# tuple[1] = [2, 3] # Throws an error because the *whole* element is being replaced
